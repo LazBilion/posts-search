@@ -1,3 +1,69 @@
 body {
   font-family: sans-serif;
+  display: flex;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+div {
+  border: 1px solid;
+  border-radius: 5px;
+  box-shadow: 2px 0 3px rgb(105, 105, 105);
+}
+
+#app {
+  width:45%;
+}
+
+.search-input input {
+  width:100%;
+}
+
+#user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-information {
+  display: grid;
+  grid-template-columns: repeat(2, 40%);
+  grid-column-gap: 15px;
+  grid-row-gap: 10px;
+}
+
+.user-information div {
+  overflow-wrap: normal;
+  background-color: lightseagreen;
+}
+
+.posts {
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+  flex-direction: column;
+}
+
+.post-title{
+  width:50%;
+}
+
+.more-info {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+button{
+  text-decoration: underline;
+  color:blue;
+  outline: none;
+  border-style: none;
+  background-color: white;
+}
+
+button:hover{
+  cursor:pointer;
 }
