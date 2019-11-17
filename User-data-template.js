@@ -1,6 +1,6 @@
-export const userTemplate = obj => `<div id="user-info">
+export const userTemplate = (obj) => `<div id="user-info">
 			<div class="user-photo">
-				the user photo
+			<i class="fab fa-d-and-d"></i>
 			</div>
 			<div class="user-information">
 				<div class="username">

@@ -1,9 +1,8 @@
 import {userTemplate} from "./User-data-template";
+import {photoTemplate} from "./User-post-photo-template";
+import {postTemplate} from "./User-post-data-template";
+import {getUserId} from "./API/get-id"
 
-function getUserId(){
-    let userId = document.getElementById("user-id").value;
-    return userId;
-}
 
 function getApi(getUserId){
     var API = `https://jsonplaceholder.typicode.com/users/${getUserId}`;
@@ -21,5 +20,33 @@ function getUserInformation(API){
     })
 }
 
-export {getUserId, getApi, getUserInformation};
+function getPhotoApi(getUserId){
+    var photoApi = `https://jsonplaceholder.typicode.com/photos?albumId=${getUserId}`;
+    return photoApi;
+}
+
+function getUserPhoto(photoApi){
+    fetch(photoApi).then(serverPhotoData => {
+        return serverPhotoData.json();
+    })
+    .then (parsedPhotoData => {
+        document.getElementById("user-info").insertAdjacentHTML("afterend", photoTemplate(parsedPhotoData[0]));
+    })
+}
+
+function getPostApi(getUserId){
+    var postApi = `https://jsonplaceholder.typicode.com/posts?userId=${getUserId}`;
+    return postApi;
+}
+
+function getUserPost(postApi){
+    fetch(postApi).then(serverPostData => {
+        return serverPostData.json();
+    })
+    .then (parsedPostData => {
+        document.querySelector(".photo").insertAdjacentHTML("afterend", postTemplate(parsedPostData[0]));
+    })
+}
+
+export {getUserId, getApi, getUserInformation,getUserPhoto, getPhotoApi, getPostApi, getUserPost};
 
