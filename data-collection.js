@@ -15,6 +15,9 @@ function getAllData(userId) {
       .then(postsPhotos => displayAll(userInfo, postsInfo, postsPhotos))
     })
   })
+  .catch((err) =>{
+    alert(err);
+  })
 }
 
 export {
