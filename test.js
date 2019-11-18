@@ -3,61 +3,40 @@ import { userTemplate } from "./User-data-template";
 import { photoTemplate } from "./User-post-photo-template";
 import { postTemplate } from "./User-post-data-template";
 
-function getUserLink(getUserId) {
-  const USER_LINK = `https://jsonplaceholder.typicode.com/users/${getUserId}`;
-  return USER_LINK;
+const LINKS = {
+  USER_LINK: "https://jsonplaceholder.typicode.com/users/",
+  POST_LINK: "https://jsonplaceholder.typicode.com/posts?userId=",
+  PHOTOS_LINK: "https://jsonplaceholder.typicode.com/photos?id="
+};
+
+function renderHTML(selectElement, className, template){
+  return selectElement(className).insertAdjacentHTML("afterend", template);
 }
 
-function getPostLink(getUserId) {
-  const POST_LINK = `https://jsonplaceholder.typicode.com/posts?userId=${getUserId}`;
-  return POST_LINK;
-}
 
-function getPhotoLink(postId) {
-  const PHOTOS_LINK = `https://jsonplaceholder.typicode.com/photos?id=${postId}`;
-  return PHOTOS_LINK;
-}
 
-function getUserInformation(userLink) {
-  fetch(userLink)
-    .then(serverUserData => {
-      return serverUserData.json();
+function getAllData(userId) {
+  Promise.all([
+    fetch(`${LINKS.USER_LINK}${userId}`).then(userData => userData.json()),
+    fetch(`${LINKS.POST_LINK}${userId}`).then(userData => userData.json())
+  ])
+  .then(userData => {
+    let userInfo, postsInfo;
+    [userInfo, postsInfo] = userData;
+    postsInfo.forEach((postsInfo) =>{
+      fetch(`${LINKS.PHOTOS_LINK}${postsInfo.id}`)
+      .then(userData => userData.json())
+      .then(postsPhotos => displayAll(userInfo, postsInfo, postsPhotos))
     })
-    .then(parsedUserData =>
-      selectElement(".search-input").insertAdjacentHTML(
-        "afterend",
-        userTemplate(parsedUserData)
-      )
-    );
+  })
 }
 
-function getUserPost(postLink) {
-  fetch(postLink)
-    .then(serverPostData => {
-      return serverPostData.json();
-    })
-    .then(parsedPostData => {
-      selectElement("#user-info").insertAdjacentHTML(
-        "afterend",
-        postTemplate(parsedPostData[0])
-      );
-      fetch(getPhotoLink(parsedPostData[0].id))
-        .then(serverPhotoData => {
-          return serverPhotoData.json();
-        })
-        .then(parsedPhotoData =>
-          selectElement("#user-info").insertAdjacentHTML(
-            "afterend",
-            photoTemplate(parsedPhotoData[0])
-          )
-        );
-    });
+function displayAll(userInformation, postInformation, photoInformation) {
+  renderHTML(selectElement, ".search-input", userTemplate(userInformation));
+  renderHTML(selectElement, "#user-info", postTemplate(postInformation));
+  renderHTML(selectElement, "#user-info", photoTemplate(photoInformation));
 }
 
 export {
-  getUserLink,
-  getUserInformation,
-  getPhotoLink,
-  getPostLink,
-  getUserPost
+  getAllData
 };
