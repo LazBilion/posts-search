@@ -13,7 +13,7 @@ export const userTemplate = (obj) => `<div id="user-info">
 					${obj.address.city}
 				</div>
 				<div class="google-map">
-					<a href = "https://maps.google.com/?ll=${obj.address.geo.lat},${obj.address.geo.lng}">the users map</a>
+					<a href = "https://maps.google.com/?ll=${obj.address.geo.lat},${obj.address.geo.lng}">Google Maps geo location</a>
 				</div>
 				<div class="company name">
 					${obj.company.name}

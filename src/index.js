@@ -1,11 +1,11 @@
 import "./styles.css";
-import * as testing from "../test";
+import * as allData from "../data-collection";
 import { getUserId} from "../API/get-id";
 
 window.addEventListener("keydown", e => {
   switch (e.which || e.keyCode) {
     case 13:
-      testing.getAllData(getUserId());
+      allData.getAllData(getUserId());
       break;
   }
 });
