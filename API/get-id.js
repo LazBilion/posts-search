@@ -1,7 +1,7 @@
-import {SELECT_ELEMENT} from "../helper/helper"
+import {selectElement} from "../helper/helper"
 
 function getUserId(){
-    let userId = SELECT_ELEMENT("#user-id").value;
+    let userId = selectElement("#user-id").value;
     return userId;
 }
 

@@ -73,10 +73,6 @@ body {
   box-shadow: 2px 0 3px rgb(105,105,105);
 }
 
-.post-title{
-  width:50%;
-}
-
 .post-body {
   border-top: 1px solid;
 }
@@ -90,6 +86,7 @@ body {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: 2px 0 3px rgb(105,105,105);
+  margin-bottom: 12px;
 }
 
 button{

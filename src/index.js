@@ -1,12 +1,12 @@
 import "./styles.css";
-import * as testing from "../test"
+import * as testing from "../test";
+import { getUserId } from "../API/get-id";
 
-window.addEventListener("keydown", (e)=>{
-    switch (e.which || e.keyCode){
-        case 13:
-            testing.getUserInformation(testing.getApi(testing.getUserId()));
-            testing.getUserPhoto(testing.getPhotoApi(testing.getUserId()));
-            testing.getUserPost(testing.getPostApi(testing.getUserId()));
-            break;
-    }
-})
+window.addEventListener("keydown", e => {
+  switch (e.which || e.keyCode) {
+    case 13:
+      testing.getUserInformation(testing.getUserLink(getUserId()));
+      testing.getUserPost(testing.getPostLink(getUserId()));
+      break;
+  }
+});

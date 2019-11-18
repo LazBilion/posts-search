@@ -3,7 +3,7 @@ export const postTemplate = (obj) => `<div class = "posts">
     ${obj.title}
 </div>
 <div class="post-body">
-    ${obj.body}
+    <p>${obj.body}</p>
 </div>
 </div>
 <div class="more-info">

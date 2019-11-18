@@ -1,2 +1,1 @@
-export const SELECT_ELEMENT = (queryElement) => document.querySelector(queryElement);
-
+export const selectElement = (queryElement) => document.querySelector(queryElement);
