@@ -1,6 +1,6 @@
-export const postTemplate = (obj) => `<div class = "posts">
+export const postTemplate = obj => `<div class = "posts">
 <div class="post-title">
-    ${obj.title}
+    <h2>${obj.title}<h2>
 </div>
 <div class="post-body">
     <p>${obj.body}</p>
