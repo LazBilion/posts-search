@@ -6,8 +6,8 @@ export const LINKS = {
     PHOTOS_LINK: "https://jsonplaceholder.typicode.com/photos?id="
   };
 
-function renderHTML(selectElement, className, template){
-    return selectElement(className).insertAdjacentHTML("afterend", template);
+function renderHTML(className, whereTo,template){
+    return selectElement(className).insertAdjacentHTML(whereTo, template);
   }
 
 export {renderHTML};

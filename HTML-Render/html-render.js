@@ -4,9 +4,17 @@ import { photoTemplate } from "../HTML-Templates/User-post-photo-template";
 import { postTemplate } from "../HTML-Templates/User-post-data-template";
 
 function displayAll(userInformation, postInformation, photoInformation) {
-  renderHTML(selectElement, ".search-input", userTemplate(userInformation));
-  renderHTML(selectElement, "#user-info", postTemplate(postInformation));
-  renderHTML(selectElement, "#user-info", photoTemplate(photoInformation));
+  renderHTML("#posts-container", "afterbegin", userTemplate(userInformation));
+  renderHTML("#user-info", "afterend",postTemplate(postInformation));
+  renderHTML("#user-info", "afterend",photoTemplate(photoInformation));
 }
 
-export { displayAll };
+function clearPosts(whatToClear){
+  let parentElement = selectElement(whatToClear);
+  while (parentElement.firstChild) {
+    parentElement.removeChild(parentElement.firstChild);
+  }
+}
+
+
+export { displayAll, clearPosts };
