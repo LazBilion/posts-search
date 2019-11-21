@@ -1,9 +1,9 @@
 export const postTemplate = obj => `<div class = "posts">
     <div class ="eachPost">
-        <div class="post-title">    
+        <div class="eachPost__post-title">    
             <h2>${obj.title}<h2>
         </div>
-        <div class="post-body">
+        <div class="eachPost__post-body">
             <p>${obj.body}</p>
         </div>
     </div>

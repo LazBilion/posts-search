@@ -40,6 +40,13 @@ p {
   font-weight: bold;
 }
 
+#user-info {
+  margin-top: 12px;
+  width:100%;
+  border:4px solid rgba(105,105,105, 0.5);
+  border-bottom:none;
+}
+
 .user-card{
   display: flex;
   flex-direction: row;
@@ -49,14 +56,7 @@ p {
   margin-left: 7%;
 }
 
-#user-info {
-  margin-top: 12px;
-  width:100%;
-  border:4px solid rgba(105,105,105, 0.5);
-  border-bottom:none;
-}
-
-.user-photo {
+.user-card__user-photo {
   font-size:7vw;
   width:25%;
   border: 4px solid rgba(105,105,105, 0.8);
@@ -69,7 +69,7 @@ p {
   width:125%;
 }
 
-.user-information {
+.user-tab__user-information {
   display: grid;
   margin-top: 20px;
   grid-template-columns: repeat(2, 40%);
@@ -79,7 +79,7 @@ p {
   text-align: center;
 }
 
-.user-information div {
+.user-tab__user-information div {
   width:100%;
   margin-bottom: 12px;
   background-color: lightgray;
@@ -89,7 +89,7 @@ p {
   font-size: 13px;
 }
 
-.user-information a {
+.user-tab__user-information a {
   color:rgb(61,91,151);
   text-decoration: none;
 }
@@ -121,7 +121,7 @@ p {
   border:5px solid rgba(105,105,105, 0.5);
 }
 
-.post-title {
+.eachPost__post-title {
   margin-left:3%;
   font-size: 90%;
   font-weight: bold;
@@ -130,7 +130,7 @@ p {
   color:white;
 }
 
-.post-body {
+.eachPost__post-body {
   width:75%;
   padding-left:3%;
   margin-bottom: 2%;
