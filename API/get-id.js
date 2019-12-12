@@ -1,8 +1,7 @@
-import {selectElement} from "../helper/helper"
+import { selectElement } from "../helper/helper";
 
-function getUserId(){
-    let userId = selectElement("#user-id").value;
-    return userId;
+function getUserId() {
+  return selectElement("#user-id").value;
 }
 
-export {getUserId};
+export { getUserId };

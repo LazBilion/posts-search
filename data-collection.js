@@ -7,8 +7,7 @@ function getAllData(userId) {
     fetch(`${LINKS.POST_LINK}${userId}`).then(userData => userData.json())
   ])
   .then(userData => {
-    let userInfo, postsInfo;
-    [userInfo, postsInfo] = userData;
+    const [userInfo, postsInfo] = userData;
     postsInfo.forEach((postsInfo) =>{
       fetch(`${LINKS.PHOTOS_LINK}${postsInfo.id}`)
       .then(postsPhotos => postsPhotos.json())
