@@ -1,9 +1,13 @@
 import "./styles.css";
+import * as allData from "../data-collection";
+import { getUserId} from "../API/get-id";
+import {clearPosts} from "../HTML-Render/html-render";
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use Parcel to bundle this sandbox, you can find more info about Parcel
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>
-`;
+window.addEventListener("keydown", e => {
+  switch (e.which || e.keyCode) {
+    case 13:
+      clearPosts("#posts-container"); 
+      allData.getAllData(getUserId());
+      break;
+  }
+});
